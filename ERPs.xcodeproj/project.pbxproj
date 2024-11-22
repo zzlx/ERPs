@@ -6,10 +6,49 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXFileReference section */
+		B07B858F2CF08A1600EFA075 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		B07B85902CF08A1600EFA075 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		B07B85912CF08A1600EFA075 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		B07B85922CF08A1600EFA075 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B07B87D42CF08A1600EFA075 /* tsconfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tsconfig.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B07B854F2CF08A1600EFA075 /* bin */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = bin;
+			sourceTree = "<group>";
+		};
+		B07B858E2CF08A1600EFA075 /* doc */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = doc;
+			sourceTree = "<group>";
+		};
+		B07B87D32CF08A1600EFA075 /* src */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {
+				utils/argvParser.mts = sourcecode.typescript;
+				utils/arrayUtils.mts = sourcecode.typescript;
+				utils/random.mts = sourcecode.typescript;
+			};
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXGroup section */
 		B07B85332CF0892D00EFA075 = {
 			isa = PBXGroup;
 			children = (
+				B07B854F2CF08A1600EFA075 /* bin */,
+				B07B858E2CF08A1600EFA075 /* doc */,
+				B07B858F2CF08A1600EFA075 /* LICENSE.md */,
+				B07B85902CF08A1600EFA075 /* Makefile */,
+				B07B85912CF08A1600EFA075 /* package.json */,
+				B07B85922CF08A1600EFA075 /* README.md */,
+				B07B87D32CF08A1600EFA075 /* src */,
+				B07B87D42CF08A1600EFA075 /* tsconfig.json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -22,7 +61,8 @@
 			buildConfigurationList = B07B853B2CF0892D00EFA075 /* Build configuration list for PBXLegacyTarget "ERPs" */;
 			buildPhases = (
 			);
-			buildToolPath = /usr/bin/make;
+			buildToolPath = " /usr/local/bin/node";
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = ERPs;

@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+/**
+ * *****************************************************************************
+ *
+ * 生成目录index模块
+ *
+ * *****************************************************************************
+ */
+
+import fs from "node:fs";
+import path from "node:path";
+
+const argvs = Array.prototype.slice.call(process.argv, 2);
+const dir = argvs[0]; 
+const target = argvs[1];
+
+if (dir == null) {
+  console.error("⚠️ 请提供一个目录作为参数");
+  process.exit(); }
+
+fs.promises.readdir(dir, { encoding: "utf8", withFileTypes: true }).then(files => {
+  if (target == null && fs.existsSync(path.join(dir, "index.mts"))) {
+    console.error(`index.mts已存在，是否覆盖，请确认.`);
+    return;
+  }
+
+  let retval = "";
+  let count = 0;
+
+  files.map(file => {
+    if (file.isDirectory()) {
+      retval += `export * from "./${file.name}/index.mts";\n`;
+      count++;
+    } else if (file.isFile()) { 
+      if (file.name === "index.mts") return;
+      if (/^\./.test(file.name)) return;
+      if (!/.mts$/.test(file.name)) return;
+
+      const fileContent = fs.readFileSync
+
+      retval += `export { ${path.basename(file.name, ".mts")} } from "./${file.name}";\n`;
+      count++;
+    }
+  });
+
+  retval = `/**
+ * *****************************************************************************
+ *
+ * ${path.basename(dir)} modules
+ *
+ * 此索引文件由工具自动生成
+ * 模块数量: ${count}
+ * 生成时间: ${new Date().toLocaleString()}
+ * *****************************************************************************
+ */
+
+` + retval;
+
+  if (target == null) return console.log(retval);
+  fs.writeFileSync(target, retval);
+});

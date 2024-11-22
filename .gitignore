@@ -1,0 +1,58 @@
+# ##############################################################################
+#
+# 参考文档
+#
+# https://help.github.com/ignore-files/
+# https://git-scm.com/docs/gitignore
+#
+# ##############################################################################
+#
+
+# 忽略的目录
+/.config/
+/build/
+/node_modules/
+/public_html/
+/log/
+
+# 忽略的文件
+.vim
+NetrwTreeListing*
+*.sw[mnop]
+*.un
+*.*.un
+*.un~
+*.*.un~
+*.~
+.env
+.env*
+.configs.json
+package-lock.json
+tags
+binding.gyp
+\'
+
+# Compiled files
+*.i
+*.s
+*.o
+*.so
+*.out
+out.*
+
+# Packages
+*.7z
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs
+*.log
+*_log
+
+# OS generated files
+.DS_Store*
+# Icon?
+Thumbs.db

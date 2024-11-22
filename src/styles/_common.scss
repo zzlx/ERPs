@@ -1,0 +1,30 @@
+
+// 平滑滚动
+html { scroll-behavior: smooth }
+
+.title {
+  font-size: calc(1.525rem + 3.3vw);
+}
+
+// 阻止选择文本
+.no-select { user-select: none }
+.no-pointer { pointer-events: none }
+.blur { filter: blur(20px) }
+
+p::first-leter {
+  font-weight: bold;
+  color: #333;
+}
+
+@media (min-width: 1200px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    backend-color: #333;
+  }
+}
+

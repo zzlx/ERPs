@@ -1,0 +1,248 @@
+#!/usr/bin/env node
+/**
+ * *****************************************************************************
+ *
+ * erpsctl: erps control program.
+ *
+ * Copyright (c) zzlx.org
+ * *****************************************************************************
+ */
+
+"use strict";
+
+// set process title if not set 
+// const dotenv = require("dotenv").config();
+process.env.NODE_ENV = process.env.NODE_ENV || "production";
+
+const debug = require("node:util").debuglog("debug:erpsctl");
+const cp = require("node:child_process");
+
+environmentDetection();
+
+process.on("uncaughtException", error => {
+  debug("@todos: 写入日志并检测http服务是否掉线,如掉线生产环境需要重启");
+  debug("uncaughtException:", error);
+});
+
+process.on("unhandledRejection",(reason, promise) => {
+  debug("@todos: 写入日志并检测http服务是否掉线,如掉线生产环境需要重启");
+  debug("unhandleRejection:", reason);
+  debug("unhandleRejection:", promise);
+});
+
+process.on("exit", code => {
+  const executeTime =  Math.ceil(process.uptime() * 1000);
+  debug("---Exit with code: %s, execute %sms.---", code, executeTime);
+});
+
+process.nextTick(() => { 
+  main(process.argv.slice(2)); // execute the main program
+});
+
+/**
+ * main program
+ */
+
+async function main (argv) {
+  const paramMap = argvParser(argv);
+
+  if (paramMap.size === 0) {
+    return process.stdout.write("no command was provided.\n");
+  }
+
+  for (const param of paramMap.keys()) {
+    switch (param) {
+      case "-h":
+      case "--help":
+        printHelpMessage();
+        break;
+      case "-v":
+      case "--version":
+        printVersion();
+        break;
+      case "--start":
+        build();
+        backend();
+      case "--stop":
+      case "--restart":
+      case "--status":
+        httpd(param);
+        break;
+      case "--build":
+        if (paramMap.get(param) !== undefined && paramMap.get(param) != true) {
+          build(paramMap.get(param));
+        } else {
+          build();
+        }
+        break;
+      default:
+        console.warn("param: '%s' is not supported. see 'erpd --help'", param);
+    }
+  }
+}
+
+/**
+ *
+ */
+
+function getPackageJSON () {
+  return require("node:fs/promises").readFile(
+    require("path").join(__dirname, "../package.json"),
+    { encoding: "utf8" },
+  ).then(c => JSON.parse(c));
+}
+
+/**
+ * print help message
+ */
+
+async function printHelpMessage () {
+
+  const pkg = await getPackageJSON();
+  const columns = process && process.stdout ? process.stdout.columns : 80;
+  const divideLine = (d) => new Array(columns > 80 ? 80 : columns).join(d);
+  process.stdout.write(`erpd@v${pkg.version}
+${divideLine("-")}
+${pkg.description}
+${divideLine("-")}
+Usage: erpd [options]
+${divideLine("-")}
+Options:
+  -h, --help                  显示帮助信息
+  -v, --version               显示版本信息
+  --start                     启动服务
+  --stop                      关闭服务
+  --restart                   重启服务
+  --status                    查询服务状态
+  --build                     创建前端程序
+${divideLine("=")}
+`);
+
+}
+
+/**
+ * print version message
+ */
+
+async function printVersion () {
+  const pkg = await getPackageJSON();
+  process.stdout.write(`erpd ${pkg.version}\n`);
+}
+
+/**
+ * httpd commands
+ */
+
+function httpd (command) {
+  spawn(
+    require("path").join(__dirname, "../src/backends/httpd/httpd.mts"),
+    command,
+  );
+}
+
+/**
+ * 
+ */
+
+function build (command) {
+  spawn(
+    require("path").join(__dirname, "../src/backends/build/build.mts"),
+    command,
+  );
+}
+
+/**
+ * start backends
+ */
+
+function backend () {
+  debug("backend daemon program is starting...");
+  spawn(require("path").join(__dirname, "../src/backends/backend.mts"));
+}
+
+/**
+ * 执行环境检测
+ */
+
+function environmentDetection () {
+  // detect node version, greet than 22.6.0 is needed.
+  if (process.versions.node.split(".")[0] < 23) {
+    console.log("node version is little then '23'");
+  }
+}
+
+function spawn () {
+  const args = [
+    "--experimental-sqlite", // sqlite support
+    "--experimental-strip-types", // typescript support
+    "--experimental-transform-types",
+    "--disable-warning=ExperimentalWarning", // disable experimental warning
+    "--trace-warnings",
+    ...arguments,
+  ];
+
+  cp.spawn(process.argv[0], args, {
+    stdio: [0, 1, 2, null],
+    detached: false,
+  });
+}
+
+function argvParser (a) {
+  const argvs = 'string' === typeof a 
+    ? a.split(/\s+/) 
+    : Array.isArray(a) ? a : [];
+  const retval = new Map();
+
+  let lastKey;
+
+  for (const v of argvs) {
+    if ( 
+      ( v.charAt(0) === "-" && isAlpha(v.charAt(1)) 
+        && ((v.charAt(2) && v.charAt(2) === "=") || v.charAt(2) == null)
+      ) ||
+      ( v.charAt(0) === "-" && v.charAt(1) === "-" 
+        && isAlpha(v.charAt(2)) 
+        && isAlpha(v.charAt(3))
+      ) 
+    ) {
+      const { key, value } = getKeyValuePair(v);
+      retval.set(key, value);
+      lastKey = key;
+      continue;
+    } 
+
+    if (lastKey) {
+      retval.set(lastKey, v);
+      lastKey = null;
+    } else {
+      retval.set(v, true);
+    }
+  }
+
+  return retval;
+}
+
+function isAlpha (c) {
+  const cc = String(c).charCodeAt(0); // cc: char code
+  return (cc >= 65 && cc <= 90) || (cc >= 97 && cc <= 122);
+}
+
+/**
+ * return the potion of equal 
+ */
+
+function getKeyValuePair (str) {
+  let i = -1;
+  const retval = { key: str, value: true };
+
+  for (const s of str) {
+    i++;
+    if (s === "=") { 
+      retval.key = str.slice(0, i); 
+      retval.value = str.slice(i+1); 
+      break; 
+    }
+  }
+
+  return retval;
+}

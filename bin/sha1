@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+/**
+ * *****************************************************************************
+ * 
+ *
+ * *****************************************************************************
+ */
+
+const { createHash } = require("node:crypto");
+const { readFile } = require("node:fs/promises");
+
+const file = process.argv[2];
+
+const hasher = createHash("sha1");
+hasher.setEncoding("hex");
+
+file && readFile(file).then(c => {
+  hasher.write(c);
+  hasher.end();
+  console.log(hasher.read());
+});
