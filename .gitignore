@@ -10,6 +10,7 @@
 
 # 忽略的目录
 /.config/
+/ERPs.xcodeproj/
 /build/
 /node_modules/
 /public_html/
