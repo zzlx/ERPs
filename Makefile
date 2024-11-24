@@ -19,19 +19,16 @@ PATH  :=  ${PATH}:${_PWD}/bin:${_PWD}/node_modules/.bin
 # 源码类别
 SOURCES   = $(wildcard *.c *.cc)
 OBJS      = $(patsubst %.c,%.o,$(patsubst %.cc,%.o,$(SOURCES)))
-mjs_files = $(shell find ./src -name '*.mjs')
 gql_files = $(shell find ./src/schema -name '*.gql')
+mts_files = $(shell find ./src -name '*.mts')
 dt_files  = $(shell find ./ -name "*.d.mts")
 ds_files  = $(shell find ./ -name ".DS_Store")
 
-myprog : $(OBJS)gcc -o myprog $(OBJS)
+# myprog : $(OBJS)gcc -o myprog $(OBJS)
 
 install: ;@echo "Installing ${NAME}....."; \
 	npm install
 	@ln -sf ${_PWD}/.vimrc ~/.vimrc
-
-test_eslint: $(mjs_files)
-	@eslint $?
 
 build_css:
 	@echo "开始构建CSS style....."
