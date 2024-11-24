@@ -12,7 +12,7 @@
  */
 
 import { Buffer } from '../Buffer.mts';
-import { utf8 } from '../utf8.mts';
+import { utf8 } from '../utf8/index.mts';
 
 export function hmac(message, key, hash) {
   if (typeof hash !== 'function') throw new Error('Hash function is invalid!'); 

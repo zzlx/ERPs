@@ -17,7 +17,7 @@
  */
 
 import { Buffer } from '../Buffer.mts';
-import { utf8 } from '../utf8.mts';
+import { utf8 } from '../utf8/index.mts';
 import { add } from './sha256.mts';
 //import { appendPaddingBits }  from './md5.mts';
 

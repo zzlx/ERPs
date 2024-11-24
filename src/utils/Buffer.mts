@@ -8,7 +8,7 @@
  */
 
 import { HEX_MAP, byteToHex } from './byteToHex.mts';
-import { utf8 } from './utf8.mts';
+import { utf8 } from './utf8/index.mts';
 
 export class Buffer extends Uint8Array {
   constructor () {

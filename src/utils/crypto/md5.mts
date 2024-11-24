@@ -17,7 +17,7 @@
  * *****************************************************************************
  */
 
-import { utf8 } from '../utf8.mts';
+import { utf8 } from '../utf8/index.mts';
 import { byteToHex } from '../byteToHex.mts';
 import { Buffer } from '../Buffer.mts';
 

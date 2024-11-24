@@ -6,5 +6,5 @@
  * *****************************************************************************
  */
 
-export { add } from "./add.mts";
-export { plus, sum } from "./plus.mts";
+export { plus } from "./plus.mts";
+export { sum } from "./sum.mts";

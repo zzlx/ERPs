@@ -97,7 +97,7 @@ export { templateString } from "./templateString.mts";
 export { throttleAlgorithm } from "./throttleAlgorithm.mts";
 export { typewriter } from "./typewriter.mts";
 export { uaParser } from "./uaParser.mts";
-export * from "./utf8.mts";
+export * from "./utf8/index.mts";
 export { uuid } from "./uuid.mts";
 export { verifyPlainObject } from "./verifyPlainObject.mts";
 export { warning } from "./warning.mts";

@@ -11,7 +11,7 @@
  */
 
 import { sha1 } from './sha1.mts';
-import { utf8 } from '../utf8.mts';
+import { utf8 } from '../utf8/index.mts';
 
 export function gitHash (content) {
   const l = utf8.encode(content).byteLength;
