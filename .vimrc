@@ -278,9 +278,8 @@ function! EnterVim ()
     " :Vexplore
     :edit README.md
     :vsp
-    :sp
-    :wincmd w
     :E
+    :wincmd w
   endif
 endfunction
 
@@ -361,7 +360,6 @@ autocmd BufRead,BufNewFile *.plist set filetype=xml
 
 " shell脚本配置项目
 autocmd BufNewFile *.sh exec ":call SetHeader()"
-autocmd BufRead,BufNewFile *.sh setfiletype sh set noexpandtab sw=2 ts=2 softtabstop=2
 autocmd FileType sh noremap <buffer> <F5> :!/bin/bash % <CR>
 
 " javascript configuration
@@ -374,7 +372,6 @@ autocmd FileType typescript noremap <buffer> <F5> :!NODE_ENV=development NODE_DE
 " typescript configuration
 "autocmd BufWinEnter,BufRead,BufNewFile *.mts set syntax=off
 "autocmd FileType typescript setlocal syntax=OFF
-autocmd BufRead,BufNewFile *.ts,*.tsx,*.mts set noexpandtab sw=2 ts=2 softtabstop=2
 
 " python脚本配置
 autocmd Filetype python set fileformat=unix

@@ -29,5 +29,5 @@ cd erps && npm install
 * Start services
 
 ```
-./bin/erpd --start
+./bin/erpctl --start
 ```

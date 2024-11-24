@@ -1,4 +1,4 @@
-UIOS(UI operation system)
-=========================
+UIOS
+====
 
-The frontend user interface operation system.
+UIOS(User Interface operation system), the frontend user interface operation system.
