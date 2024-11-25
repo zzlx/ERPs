@@ -13,7 +13,7 @@
 import crypto from "node:crypto";
 import EventEmitter from "node:events";
 import fs from "node:fs";
-import { readdir } from "./utils/index.mts";
+import { readdir } from "../utils/readdir.mts";
 
 export class PathWatcher extends EventEmitter {
   constructor (props) {

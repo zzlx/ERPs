@@ -11,8 +11,8 @@
   "scripts": {
     "edit": "vim -u .vimrc",
     "build:addons": "node-gyp build",
-    "start:prod": "./bin/erpctl --start",
-    "start:devel": "NODE_DEBUG=debug* NODE_ENV=development ./bin/erpctl --start",
+    "start:prod": "./bin/erpd --start",
+    "start:devel": "NODE_DEBUG=debug* NODE_ENV=development ./bin/erpd --start",
     "start": "npm run start:devel",
     "test": ""
   },

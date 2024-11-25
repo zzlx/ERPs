@@ -25,7 +25,7 @@ export function Button (props: ButtonProps) {
 
   const cn = classNames(
     "btn",
-    theme && `btn-${theme}`,
+    theme ? `btn-${theme}` : "btn-primary",
     "d-print-none",
     outline && "btn-outline",
     lg ^ sm && lg && "btn-lg",

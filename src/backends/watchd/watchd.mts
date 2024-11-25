@@ -1,8 +1,9 @@
 /**
  * *****************************************************************************
  *
- * ERP daemon server.
+ * main process
  *
+ * 
  * *****************************************************************************
  */
 
@@ -10,15 +11,17 @@ import cp from "node:child_process";
 import path from "node:path";
 import util from "node:util";
 
-import { debounce, flattenArray } from "../utils/index.mts";
-import { exec } from "./utils/index.mts";
-import { paths } from "../settings/paths.mts";
+import { debounce, flattenArray } from "../../utils/index.mts";
+import { exec } from "../utils/index.mts";
+import { paths } from "../../settings/paths.mts";
 import { PathWatcher } from "./PathWatcher.mts";
 
-const debug = util.debuglog("debug:erpd");
+const debug = util.debuglog("debug:watchd");
 
-const is_main_process = import.meta.filename === process.argv[1];
-if (is_main_process) { main(); }
+if (import.meta.filename === process.argv[1]) {
+  process.title = "org.zzlx.erpd.watchd"; // setting main process title
+  main(); // execute main program
+}
 
 /**
  * running in individual process
@@ -30,12 +33,6 @@ export function main() {
     2. vim编辑触发pathwatch事件
   `);
 
-  if (is_main_process) { 
-    process.title = "org.zzlx.erpd"; // set process title
-  } else {
-
-  }
-
   // backend(...arguments);
 
   if (process.env.NODE_ENV === "development") {
@@ -45,7 +42,6 @@ export function main() {
 }
 
 /**
- *
  * 目录监控程序
  */
 
