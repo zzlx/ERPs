@@ -3,15 +3,12 @@
  *
  * Parse string or buffer into an object
  *
- * @param {string} str - source to be parsed
- * @returns {Object} keys and values from src
- *
  * *****************************************************************************
  */
 
-import { assert } from './assert.mts';
+import { assert } from "../assert.mts";
 
-export function keyValueParser (str) {
+export function keyValueParser (str: string): object {
   assert(typeof str === 'string', `Parameter for csv2json must be a string.`);
   const obj = {};
 

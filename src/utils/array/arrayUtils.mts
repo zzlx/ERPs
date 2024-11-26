@@ -5,20 +5,8 @@
  *
  * toCSV: 输出CSV字符串
  * toHtmlTable: 输出html表格
- * toMarkdownTable: 输出markdown表格
  *
  */
-
-export const arrayUtils = new Proxy(Array, {
-  get: function (target, prop, receiver) {
-    if (prop === 'sort') receiver.sort = sort;
-    if (prop === 'keyMap') receiver.keyMap = keyMap;
-    if (prop === 'groupBy') receiver.groupBy = groupBy;
-    if (prop === 'sum') receiver.sum = sum;
-
-    return Reflect.get(target, prop, receiver);
-  }
-});
 
 function sort (types) {
   types.sort((a, b) => {
@@ -49,7 +37,6 @@ function find (list, predicate) {
 
 /**
  * 对数据的字段求和
- *
  */
 
 function sum(array, key) {
@@ -74,8 +61,6 @@ function sum(array, key) {
  *
  * @param {array} resArray 关联数组
  * @param {string} key
- *
- * @return
  */
 
 function groupBy(array, key, selector = {}) {
@@ -127,13 +112,6 @@ function keyMap (list, keyFn) {
 }
 
 /**
- * 输出markdown格式表格
- */
-
-function toMarkdownTable () {
-}
-
-/**
  *
  *
  */
@@ -142,7 +120,7 @@ function getMaxOne(map) {
 	let maxKey = null;
 	let maxValue = 0;
 
-	for (let key of map.keys()) {
+	for (const key of map.keys()) {
 		const value = map.get(key);
 		if (value > maxValue) {
 			maxKey = key;
