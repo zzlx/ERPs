@@ -14,7 +14,7 @@ import util from "node:util";
 import { indexHtml } from "./plugins/indexHtml.mts";
 import { copyJS } from "./plugins/copyJS.mts";
 import { metaInfo } from "./plugins/meta-info.mts";
-import { paths } from "../../settings/index.mts";
+import { paths } from "../settings/index.mts";
 
 const debug = util.debuglog("debug:ui-builder");
 if (import.meta.filename === process.argv[1]) main();

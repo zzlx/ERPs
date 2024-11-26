@@ -8,8 +8,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import util from "node:util";
-import settings from "../../../settings/index.mts";
-import { htmlTemplate } from "../../../utils/index.mts";
+import { settings } from "../../settings/index.mts";
+import { htmlTemplate } from "../../utils/index.mts";
 
 const debug = util.debuglog("debug:esbuild-html-plugin");
 

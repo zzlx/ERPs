@@ -14,9 +14,9 @@
 import path from "node:path";
 import util from "node:util";
 import { Router } from "../Router.mts";
-import settings, { paths } from "../../settings/index.mts"; 
+import { settings, paths } from "../../settings/index.mts"; 
 import { htmlTemplate } from "../../utils/index.mts";
-import { readdir } from "../../backends/utils/index.mts";
+import { readdir } from "../../utils.node/index.mts";
 
 const debug = util.debuglog("debug:routes-api");
 const html = await settings.template("html/index.html");

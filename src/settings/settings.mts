@@ -21,7 +21,7 @@ import {
   generatePrivateKey, 
   generateCSR,
   generateCert,
-} from "../backends/utils/index.mts";
+} from "../utils.node/index.mts";
 import { debounce } from "../utils/index.mts";
 
 const debug = util.debuglog("debug:settings");

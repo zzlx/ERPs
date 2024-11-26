@@ -3,6 +3,7 @@
  * 
  * http service daemon
  *
+ *
  * *****************************************************************************
  */
 
@@ -12,10 +13,10 @@ import path from "node:path";
 import tls from "node:tls";
 import util from "node:util";
 
-import settings from "../../settings/index.mts";
-import { argvParser, flattenArray } from "../../utils/index.mts";
-import { spawn } from "../utils/index.mts";
-import { app } from "../../koa/app.mts";
+import { settings } from "../settings/index.mts";
+import { argvParser, flattenArray } from "../utils/index.mts";
+import { spawn } from "../utils.node/index.mts";
+import { app } from "../koa/app.mts";
 
 const debug = util.debuglog("debug:httpd");
 const is_main_process =  import.meta.filename === process.argv[1];

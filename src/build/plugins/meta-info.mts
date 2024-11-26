@@ -8,7 +8,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import esbuild from "esbuild";
-import { paths } from "../../../settings/index.mts";
+import { paths } from "../../settings/index.mts";
 
 export const metaInfo = {
   name: "meta-info-plugin",

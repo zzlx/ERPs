@@ -12,7 +12,7 @@ import util from "node:util";
 import { Router } from "../Router.mts";
 import { cors, ssr, srs } from "../middlewares/index.mts";
 import { settings, paths } from "../../settings/index.mts"; 
-import { readdir } from "../../backends/utils/index.mts";
+import { readdir } from "../../utils.node/index.mts";
 import { apis } from "./apis.mts";
 
 const debug = util.debuglog("debug:routes");

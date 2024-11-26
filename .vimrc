@@ -148,7 +148,9 @@ set tags=tags,tagsx,..\tags
 set autochdir  " 自动进入文件所在目录
 
 " 默认缩进设置
-set cindent shiftwidth=2 tabstop=2
+set cindent 
+set shiftwidth=2 
+set tabstop=2
 set shiftround
 set softtabstop=2
 set noautoindent

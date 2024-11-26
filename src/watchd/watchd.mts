@@ -11,9 +11,9 @@ import cp from "node:child_process";
 import path from "node:path";
 import util from "node:util";
 
-import { debounce, flattenArray } from "../../utils/index.mts";
-import { exec } from "../utils/index.mts";
-import { paths } from "../../settings/paths.mts";
+import { debounce, flattenArray } from "../utils/index.mts";
+import { exec } from "../utils.node/index.mts";
+import { paths } from "../settings/index.mts";
 import { PathWatcher } from "./PathWatcher.mts";
 
 const debug = util.debuglog("debug:watchd");
@@ -63,11 +63,11 @@ function handleFileChange (f) {
   debug("file: %s was be modified", f);
 
   if (/\.mjs|\.mts|\.jsx$/.test(f)) {
-    import("./build/buildUI.mts").then(m => m.main())
+    import("../build/buildUI.mts").then(m => m.main())
       .then(() => restartHttpd())
       .then(() => eslint(f));
   } else if (/\.scss$/.test(f)) {
-    import("./build/buidScss.mts").then(m => m.main());
+    import("../build/buidScss.mts").then(m => m.main());
   } else if (/\.mts$/.test(f)) {
     exec(`tsc --noEmit ${f}`).then(debug).catch(debug);
   } else {
@@ -120,5 +120,5 @@ function restartHttpd () {
  */
 
 function httpd (command) {
-  import("./httpd/httpd.mts").then(m => m.main(command));
+  import("../httpd/httpd.mts").then(m => m.main(command));
 }

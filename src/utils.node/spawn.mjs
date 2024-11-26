@@ -12,6 +12,7 @@ export function spawn () {
   const args = [
     "--experimental-sqlite", // sqlite support
     "--experimental-strip-types", // typescript support
+    "--experimental-transform-types",
     "--disable-warning=ExperimentalWarning", // disable experimental warning
     "--trace-warnings",
     ...arguments,

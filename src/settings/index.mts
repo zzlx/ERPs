@@ -7,8 +7,5 @@
  * *****************************************************************************
  */
 
-import * as constants from "./constants.mts";
-import { settings } from "./settings.mts";
+export { settings } from "./settings.mts";
 export { paths } from "./paths.mts";
-export { constants, settings };
-export default settings;

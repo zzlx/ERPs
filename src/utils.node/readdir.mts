@@ -10,7 +10,7 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import { flattenArray } from "../../utils/index.mts";
+import { flattenArray } from "../utils/index.mts";
 
 export async function readdir (_root) {
 

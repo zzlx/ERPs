@@ -10,8 +10,8 @@ import path from "node:path";
 import util from "node:util";
 import zlib from "node:zlib";
 import * as sass from "sass";
-import { readdir } from "../utils/index.mts";
-import { paths } from "../../settings/index.mts";
+import { readdir } from "../utils.node/index.mts";
+import { paths } from "../settings/index.mts";
 
 const debug = util.debuglog("debug:scssBuilder");
 if (import.meta.filename === process.argv[1]) main();
