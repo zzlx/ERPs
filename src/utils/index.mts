@@ -11,9 +11,7 @@
 
 export { Buffer } from "./Buffer.mts";
 export { HTMLDOM } from "./HTMLDOM.mts";
-export { IDNumber } from "./IDNumber.mts";
 export { Plist } from "./Plist.mts";
-export { argvParser } from "./argvParser.mts";
 export * from "./array/index.mts";
 export { arrayUtils } from "./arrayUtils.mts";
 export { assert } from "./assert.mts";
@@ -74,6 +72,7 @@ export { only } from "./only.mts";
 export { orList } from "./orList.mts";
 export * from "./path/index.mts";
 export * from "./pdf/index.mts";
+export * from "./parser/index.mts";
 export { printCharCode } from "./printCharCode.mts";
 export { printDivideLine } from "./printDivideLine.mts";
 export { printProgressBar } from "./printProgressBar.mts";
