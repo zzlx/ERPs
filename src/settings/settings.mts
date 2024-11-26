@@ -18,10 +18,12 @@ import { packageInfo } from "./packageInfo.mts";
 import * as constants from "./constants.mts";
 import { 
   getchar, exec, exists, 
+} from "../watchd/utils/index.mts";
+import { 
   generatePrivateKey, 
   generateCSR,
   generateCert,
-} from "../utils.node/index.mts";
+} from "./utils/index.mts";
 import { debounce } from "../utils/index.mts";
 
 const debug = util.debuglog("debug:settings");

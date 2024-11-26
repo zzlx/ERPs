@@ -13,14 +13,14 @@
 
 import util from "node:util";
 
-import { Koa2 } from "../koa/Koa2.mts";
-import { error } from "../koa/middlewares/error.mts";
-import { cookies } from "../koa/middlewares/cookies.mts";
-import { xResponse } from "../koa/middlewares/xResponse.mts";
-import { logger } from "../koa/middlewares/logger.mts";
-import { cors } from "../koa/middlewares/cors.mts";
+import { Koa2 } from "../Koa2.mts";
+import { error } from "../middlewares/error.mts";
+import { cookies } from "../middlewares/cookies.mts";
+import { xResponse } from "../middlewares/xResponse.mts";
+import { logger } from "../middlewares/logger.mts";
+import { cors } from "../middlewares/cors.mts";
 // import { objectID } from "./utils/objectID.mts";
-import { Postgresql } from "../database/Postgresql.mts";
+import { Postgresql } from "../../database/Postgresql.mts";
 
 const debug = util.debuglog("debug:koa-app");
 const pg = new Postgresql();
@@ -52,7 +52,7 @@ app.use(cors());
 app.use(cookies());
 
 // 载入服务端路由配置
-const router = await import("./routes/index.mts").then(m => m.router);
+const router = await import("../routes/index.mts").then(m => m.router);
 app.use(router.routes()); 
 
 // 开发模式下启用的功能特性

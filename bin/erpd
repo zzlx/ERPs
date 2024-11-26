@@ -111,7 +111,7 @@ function httpd (command) {
  */
 
 function build (command) {
-  spawn(path.join(__dirname, "../src/build/build.mts"), command);
+  spawn(path.join(__dirname, "../src/builder/build.mts"), command);
 }
 
 /**
