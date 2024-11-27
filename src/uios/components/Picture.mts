@@ -9,6 +9,7 @@
  */
 
 import { createElement as e } from "react";
+import { Image } from "./Image.mts";
 
 export function Picture (props) {
   const { src, sources, ...rests } = props;
@@ -26,8 +27,4 @@ export function Picture (props) {
   const Img = e(Image, { src: src, ...rests, });
   
   return e("picture", null, Sources, Img);
-}
-
-export function Image (props) {
-  return e("img", { ...props });
 }
