@@ -13,10 +13,10 @@
 
 import path from "node:path";
 import util from "node:util";
-import { Router } from "../Router.mts";
-import { settings, paths } from "../../settings/index.mts"; 
-import { htmlTemplate } from "../../utils/index.mts";
-import { readdir } from "../../watchd/utils/index.mts";
+import { Router } from "../koa/Router.mts";
+import { settings, paths } from "../settings/index.mts"; 
+import { htmlTemplate } from "../utils/index.mts";
+import { readdir } from "../watchd/utils/index.mts";
 
 const debug = util.debuglog("debug:routes-api");
 const html = await settings.template("html/index.html");

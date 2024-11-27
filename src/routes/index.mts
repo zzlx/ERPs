@@ -9,10 +9,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import util from "node:util";
-import { Router } from "../Router.mts";
-import { cors, ssr, srs } from "../middlewares/index.mts";
-import { settings, paths } from "../../settings/index.mts"; 
-import { readdir } from "../../watchd/utils/index.mts";
+import { Router } from "../koa/Router.mts";
+import { cors, ssr, srs } from "../koa/middlewares/index.mts";
+import { settings, paths } from "../settings/index.mts"; 
+import { readdir } from "../watchd/utils/index.mts";
 import { apis } from "./apis.mts";
 
 const debug = util.debuglog("debug:routes");
