@@ -177,11 +177,11 @@ filetype on               " 文件类型检测
 syntax enable
 
 " ------------------------------------------------------------------------------
-let Tlist_Auto_Open =1 
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
+let Tlist_Auto_Open=1 
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -206,7 +206,8 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro nornu'
 let g:netrw_keepdir = 0 " keep current dir the same as the browsing dir
 " let b:netrw_curdir
 let g:netrw_menu = 1
-let g:netrw_hide = 1
+let g:netrw_list_hide='.*\(^\.git\)' " hide dot files
+let g:netrw_hide=1 " 0 show all =1 show not-hidden files
 let g:netrw_theme = "dark"
 let g:netrw_use_devicons = 1
 autocmd FileType netrw setlocal bufhidden=delete
