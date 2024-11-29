@@ -10,7 +10,7 @@
  * *****************************************************************************
  */
 
-export function throttleAlgorithm (fn, ms = 100) {
+export function throttle (fn, ms = 100) {
   let flag = true;
 
   return function () {

@@ -1,5 +1,4 @@
-export const schedule = () => {
-}
+export const schedule = () => { }
 
 //并行限制的Promise调度器
 class Scheduler {

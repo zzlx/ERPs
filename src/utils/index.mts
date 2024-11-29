@@ -9,8 +9,8 @@
  * *****************************************************************************
  */
 
+export * from "./algorithms/index.mts";
 export { Buffer } from "./Buffer.mts";
-export { HTMLDOM } from "./HTMLDOM.mts";
 export { Plist } from "./Plist.mts";
 export * from "./array/index.mts";
 export { assert } from "./assert.mts";
@@ -27,9 +27,7 @@ export { classNames} from "./classNames.mts";
 export { cny2rmb } from "./cny2rmb.mts";
 export * from "./crypto/index.mts";
 export * from "./csv/index.mts";
-export { dataLoad } from "./dataLoad.mts";
 export * from "./date/index.mts";
-export { debounce } from "./debounce.mts";
 export { debuglog } from "./debuglog.mts";
 export { dedent } from "./dedent.mts";
 export { deepCopy } from "./deepCopy.mts";
@@ -82,14 +80,11 @@ export { randomString } from "./randomString.mts";
 export { regularPath } from "./regularPath.mts";
 export { reverseString } from "./reverseString.mts";
 export { rgbToHex } from "./rgbToHex.mts";
-export { scanf } from "./scanf.mts";
-export { schedule } from "./schedule.mts";
 export { setMap } from "./setMap.mts";
 export { shuffleSort } from "./shuffleSort.mts";
 export { sort } from "./sort.mts";
 export { suggestionList } from "./suggestionList.mts";
 export { templateString } from "./templateString.mts";
-export { throttleAlgorithm } from "./throttleAlgorithm.mts";
 export { typewriter } from "./typewriter.mts";
 export * from "./utf8/index.mts";
 export { uuid } from "./uuid.mts";

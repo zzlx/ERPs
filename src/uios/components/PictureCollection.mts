@@ -176,7 +176,6 @@ function takePicture(e) {
 }
 
 function zoom(e) {
-  return;
   const x = e.layerX;
   const y = e.layerY;
   const scale = Math.round(1240/375);

@@ -17,6 +17,24 @@
  * *****************************************************************************
  */
 
+// Regular expression that checks for hex value
+const checkForHexRegExp = new RegExp('^[0-9a-fA-F]{24}$');
+
+// Unique sequence for the current process (initialized on first use)
+let PROCESS_UNIQUE: Uint8Array | null = null;
+
+export interface ObjectIdLike {
+  id: string | Buffer;
+  __id?: string;
+  toHexString(): string;
+}
+
 export const objectID = () => null;
 
+class ObjectID {
 
+  toHexString(): string {
+    const hexString = this.id.toString('hex');
+    return hexString;
+  }
+}
