@@ -11,6 +11,7 @@ import { Fragment, createElement as el, useState } from "react";
 import {
   Nav,
   List,
+  Input,
 } from "../components/index.mts";
 
 const userdata = {
@@ -28,6 +29,7 @@ export function HomePage () {
   });
 
   const list = el(List);
+  const textarea = el(Input);
 
   return el(Fragment, null, h1, nav, img, list);
 }
