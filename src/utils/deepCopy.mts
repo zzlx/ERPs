@@ -6,7 +6,7 @@
  * *****************************************************************************
  */
 
-import { isPlainObject } from "./is/index.mts";
+import { isPlainObject } from "./index.mts";
 
 export const deepCopy = (target, hash = new WeakMap()) => {
   if (!isPlainObject(target)) return target; // 对于传入参数处理

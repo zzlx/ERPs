@@ -12,7 +12,7 @@
  * *****************************************************************************
  */
 
-import { assert } from '../assert.mts';
+import { assert } from '../index.mts';
 import { utf8 } from '../utf8/index.mts';
 import { Buffer } from '../Buffer.mts';
 import { appendPaddingBits } from './sha1.mts';

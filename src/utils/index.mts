@@ -10,18 +10,18 @@
  */
 
 export * from "./algorithms/index.mts";
+export * from "./assert/index.mts";
 export { Buffer } from "./Buffer.mts";
 export { Plist } from "./Plist.mts";
 export * from "./array/index.mts";
-export { assert } from "./assert.mts";
 export * from "./barcode/index.mts";
 export { bigCopy } from "./bigCopy.mts";
 export { blockStringValue } from "./blockStringValue.mts";
 export { buildExecutionContext } from "./buildExecutionContext.mts";
 export { byteMask } from "./byteMask.mts";
 export { byteToHex } from "./byteToHex.mts";
-export { classNames} from "./classNames.mts";
 export { cny2rmb } from "./cny2rmb.mts";
+export { compose } from "./compose.mts";
 export * from "./crypto/index.mts";
 export * from "./csv/index.mts";
 export * from "./date/index.mts";
@@ -45,7 +45,6 @@ export { getURLSearchParams } from "./getURLSearchParams.mts";
 export { htmlTemplate } from "./htmlTemplate.mts";
 export { inspect } from "./inspect.mts";
 export { instanceOf } from "./instanceOf.mts";
-export * from "./is/index.mts";
 export { iterall } from "./iterall.mts";
 export * from "./json/index.mts";
 export * from "./jwt/index.mts";

@@ -76,7 +76,7 @@ export function getOptions () {
   options.entryNames = "assets/es/[name]";
 
   options.entryPoints = {
-    index: "src/uios/index.mts",
+    index: "src/uis/index.mts",
     // app: "src/apps/ReactApp.mts",
     // react: "node_modules/react/index.js",
     // "react-dom": "node_modules/react-dom/index.js", 

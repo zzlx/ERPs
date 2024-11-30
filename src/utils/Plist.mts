@@ -8,7 +8,7 @@
  * *****************************************************************************
  */
 
-import { isBoolean } from "./is/isBoolean.mts";
+import { isBoolean } from "./index.mts";
 
 export class Plist {
   constructor (props = {}) {

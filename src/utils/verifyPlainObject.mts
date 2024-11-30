@@ -4,7 +4,7 @@
  *
  */
 
-import { isPlainObject } from "./is/index.mts";
+import { isPlainObject } from "./index.mts";
 import { warning } from "./warning.mts";
 
 export function verifyPlainObject(value, displayName, methodName) {

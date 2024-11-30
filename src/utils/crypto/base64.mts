@@ -15,9 +15,9 @@
  * *****************************************************************************
  */
 
-import { assert } from "../assert.mts";
+import { assert } from "../index.mts";
 import { Buffer } from "../Buffer.mts";
-import { isPlainObject } from "../is/index.mts";
+import { isPlainObject } from "../index.mts";
 
 // The Base64 Alphabet
 const b64a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -31,7 +31,8 @@ const b64map  = (() => {
 export const base64 = new Proxy({}, {
   get: function(target, property, receiver) {
     if (property === "encode") return encode;
-  }
+    return Reflect.get(target, property, receiver);
+  },
 });
 
 
@@ -63,7 +64,7 @@ export function btoa (data, url = false) {
     buffer[b++] = b64code[b24 >>> 12 & 0x3F];
     buffer[b++] = b64code[b24 >>> 6  & 0x3F];
     buffer[b++] = b64code[b24        & 0x3F];
-  }
+  };
 
   // iterate all byte of data
   for (const v of data) {

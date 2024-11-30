@@ -46,7 +46,7 @@ router.all(
   "UIAPP", 
   [ "/", "/home", "/home/*", "/test", "/test/*", ], 
   ssr({
-    app: path.join(paths.SRC, "uios", "serverSideRender.mts"),
+    app: path.join(paths.SRC, "uis", "serverSideRender.mts"),
     template: template 
   }), // 前端程序
 );

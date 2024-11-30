@@ -16,11 +16,11 @@
  * *****************************************************************************
  */
 
-import { assert } from './assert.mts';
+import { assert } from "./assert/index.mts";
 
 export function find (query = {}, projection = {}) {
   const { data } = this;
-  assert(Array.isArray(data), 'Data must be an array object');
+  assert(Array.isArray(data), "Data must be an array object");
 
   let result = null;
 

@@ -5,7 +5,7 @@
  * *****************************************************************************
  */
 
-import { assert } from '../assert.mts';
+import { assert } from '../index.mts';
 
 export function csv () {
   return new CSV(...arguments);

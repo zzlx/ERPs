@@ -14,7 +14,7 @@
  * *****************************************************************************
  */
 
-import { isEvenNumber } from "../is/index.mts";
+import { isEvenNumber } from "../index.mts";
 
 export const idParser = (id: string) => new Proxy({ id: id }, {
   get: function (target, property, receiver) {

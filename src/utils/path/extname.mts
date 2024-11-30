@@ -6,7 +6,7 @@
  * *****************************************************************************
  */
 
-import { assert } from '../assert.mts';
+import { assert } from '../index.mts';
 
 export function extname (path) {
   assert(typeof path === 'string', `extname‘s param must be a string.`);
