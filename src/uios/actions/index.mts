@@ -9,5 +9,6 @@
  */
 
 export { eventHandler } from "./eventHandler.mts";
+export { listEventHandler } from "./listEventHandler.mts";
 export { onChangeHandler } from "./onChangeHandler.mts";
 export { onKeyDownHandler } from "./onKeyDownHandler.mts";

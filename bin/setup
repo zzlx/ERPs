@@ -71,6 +71,20 @@ declare -rx QUITE=false        # 静默模式
 # 临时容器 key value database
 declare -a _KVDB
 
+
+read -p "Enter your username" user
+echo "Username: $user"
+
+if ["$EUID" -ne 0 ]; then
+  echo "You are not running this script as the root user."
+else
+  echo "You are running this script as the root user."
+fi
+
+current_data=$(date)
+echo "Today's date is : $current_date"
+
+
 # ------------------------------------------------------------------------------
 # shell函数定义
 # 函数定义关键字function不作强制要求

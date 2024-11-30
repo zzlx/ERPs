@@ -29,5 +29,8 @@ export function Copyright (props: CopyrightProps) {
   const currentYear = (new Date()).getFullYear(); 
   const copyright = year == currentYear ? ` © ${year}` : ` © ${year}-${currentYear}`;
 
-  return e("div", { className: cn, ...rests }, "Copyright", copyright, children);
+  return e("div", { 
+    className: String(cn), 
+    ...rests 
+  }, "Copyright", copyright, children);
 }

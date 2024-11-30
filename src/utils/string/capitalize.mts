@@ -1,11 +1,9 @@
 /**
  * *****************************************************************************
  *
- * Math tools
+ * capitalize
  *
  * *****************************************************************************
  */
 
-export { plus } from "./plus.mts";
-export { sum } from "./sum.mts";
-export { average } from "./average.mts";
+export const capitalize: string = str => str.charAt(0).toUpperCase() + str.slice(1);

@@ -6,15 +6,15 @@
  * *****************************************************************************
  */
 
-import React from "react";
+import { Component, Fragment, createElement } from "react";
 import { isPromise } from "../../utils/index.mts";
 
-export class Suspense extends React.Component {
+export class Suspense extends Component {
   render() {
     const { fallback, children } = this.props
     const { promise } = this.state
 
-    return React.createElement(React.Fragment, {}, promise ? fallback : children);
+    return createElement(Fragment, {}, promise ? fallback : children);
   }
 
   componentDidCatch(err) {

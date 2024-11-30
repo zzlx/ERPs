@@ -1,11 +1,9 @@
 /**
  * *****************************************************************************
  *
- * Math tools
  *
  * *****************************************************************************
  */
 
-export { plus } from "./plus.mts";
-export { sum } from "./sum.mts";
-export { average } from "./average.mts";
+export { camelCase } from "./camelCase.mts";
+export { capitalize } from "./capitalize.mts";

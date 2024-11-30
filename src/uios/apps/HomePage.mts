@@ -10,7 +10,7 @@ import { Fragment, createElement as el, useState } from "react";
 
 import {
   Nav,
-  Button,
+  List,
 } from "../components/index.mts";
 
 const userdata = {
@@ -19,7 +19,6 @@ const userdata = {
 }
 
 export function HomePage () {
-  const button = el(Button, null, "button");
   const nav = el(Nav, null, "nav");
   const h1 = el("h1", null, "Welcome");
   const img = el("img", { 
@@ -28,5 +27,7 @@ export function HomePage () {
     src: "https://himg.bdimg.com/sys/portrait/item/public.1.b610c5c.378MdhaybSZVUQV8TgNl3g.jpg"
   });
 
-  return el(Fragment, null, h1, nav, button, img);
+  const list = el(List);
+
+  return el(Fragment, null, h1, nav, img, list);
 }

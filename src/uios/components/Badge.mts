@@ -29,5 +29,5 @@ export function Badge (props: BadgeProps) {
   );
 
   // return e("sup", { className: cn, ...rests }); 
-  return e("span", { className: cn, ...rests }); 
+  return e("span", { className: String(cn), ...rests }); 
 }

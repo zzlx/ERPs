@@ -206,7 +206,7 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro nornu'
 let g:netrw_keepdir = 0 " keep current dir the same as the browsing dir
 " let b:netrw_curdir
 let g:netrw_menu = 1
-let g:netrw_list_hide='.*\(^\.git\),.vimrc' " hide dot files
+let g:netrw_list_hide='.*\(^\.git\),.DS_Store' " hide dot files
 let g:netrw_hide=1 " 0 show all =1 show not-hidden files
 let g:netrw_theme = "dark"
 let g:netrw_use_devicons = 1

@@ -46,7 +46,7 @@ export function Button (props: ButtonProps) {
     onClick: onClick ? onClick : actionHandler,
     onKeyDown: onKeyDown ? onKeyDown : actionHandler,
 
-    className: cn,
+    className: String(cn),
     type: type ? type : button === "a" ? null : "button",
     role: role ? role : button === "a" ? "button" : null,
     value: button === "input" ? value ? value : children : null,

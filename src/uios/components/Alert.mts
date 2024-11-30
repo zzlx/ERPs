@@ -22,7 +22,6 @@
 import React from "react";
 import { classNames } from "../../utils/index.mts";
 
-
 export class Alert extends React.PureComponent {
   constructor (props) {
     super(props);
@@ -79,7 +78,7 @@ export class Alert extends React.PureComponent {
     });
 
     return React.createElement('div', {
-      className: cn_alert,
+      className: cn_alert.toString(),
       draggable: true,
       role: 'alert',
       onTouchStart: dismissible ? null : handleTouchStart.bind(this), 
