@@ -2,7 +2,7 @@
   "name": "erps",
   "description": "erps is a software that provide virous ERP services.",
   "homepage": "https://erps.zzlx.org",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "private": true,
   "licenses": "MIT",
   "bin": {
