@@ -21,7 +21,7 @@ const u32 = Uint32Array.of(0x12345678);
 const u8 = new Uint8Array(u32.buffer);
 const newData = (u8[0] << 24) + (u8[1] << 16) + (u8[2] << 8) + u8[3];
 
-export const endianness = () => { 
+export const check_endianness = () => { 
   if (newData === 0x12345678) return "BE";
   if (newData === 0x78563412) return "LE";
   throw new Error('Unknown endianness');

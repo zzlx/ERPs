@@ -4,22 +4,23 @@
  * . modules
  *
  * 此索引文件由工具自动生成
- * 模块数量: 93
- * 生成时间: 2024/11/13 17:14:55
+ * 模块数量: 78
+ * 生成时间: 2024/12/2 17:12:04
  * *****************************************************************************
  */
 
-export * from "./algorithms/index.mts";
-export * from "./assert/index.mts";
 export { Buffer } from "./Buffer.mts";
 export { Plist } from "./Plist.mts";
+export * from "./algorithms/index.mts";
 export * from "./array/index.mts";
+export * from "./assert/index.mts";
 export * from "./barcode/index.mts";
 export { bigCopy } from "./bigCopy.mts";
 export { blockStringValue } from "./blockStringValue.mts";
 export { buildExecutionContext } from "./buildExecutionContext.mts";
 export { byteMask } from "./byteMask.mts";
 export { byteToHex } from "./byteToHex.mts";
+export { check_endianness } from "./check_endianness.mts";
 export { cny2rmb } from "./cny2rmb.mts";
 export { compose } from "./compose.mts";
 export * from "./crypto/index.mts";
@@ -33,7 +34,6 @@ export { defineToJSON } from "./defineToJSON.mts";
 export { defineToStringTag } from "./defineToStringTag.mts";
 export { deviceDetect } from "./deviceDetect.mts";
 export * from "./dom/index.mts";
-export { endianness } from "./endianness.mts";
 export { etag } from "./etag.mts";
 export { events } from "./events.mts";
 export { fileTypeDetect } from "./fileTypeDetect.mts";
@@ -59,9 +59,9 @@ export { objectID } from "./objectID.mts";
 export { objectSpread } from "./objectSpread.mts";
 export { only } from "./only.mts";
 export { orList } from "./orList.mts";
+export * from "./parser/index.mts";
 export * from "./path/index.mts";
 export * from "./pdf/index.mts";
-export * from "./parser/index.mts";
 export { printCharCode } from "./printCharCode.mts";
 export { printDivideLine } from "./printDivideLine.mts";
 export { printProgressBar } from "./printProgressBar.mts";
@@ -80,6 +80,7 @@ export { sort } from "./sort.mts";
 export * from "./string/index.mts";
 export { suggestionList } from "./suggestionList.mts";
 export { typewriter } from "./typewriter.mts";
+export { uaParser } from "./uaParser.mts";
 export * from "./utf8/index.mts";
 export { uuid } from "./uuid.mts";
 export { verifyPlainObject } from "./verifyPlainObject.mts";

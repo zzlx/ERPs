@@ -1,11 +1,11 @@
 /**
  * *****************************************************************************
  *
- * is big endian
+ * is little endian
  *
  * *****************************************************************************
  */
 
-import { endianness } from "../endianness.mts";
+import { check_endianness } from "../check_endianness.mts";
 
-export const isLE: boolean = () => endianness() === "LE";
+export const isLE: boolean = () => check_endianness() === "LE";
