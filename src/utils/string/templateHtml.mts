@@ -1,12 +1,14 @@
 /**
  * *****************************************************************************
  *
+ * html 模版字符串
+ * 
  * *****************************************************************************
  */
 
 import { templateString } from "./templateString.mts";
 
-export function htmlTemplate (template) {
+export function templateHtml (template) {
   const data = Object.assign({}, {
     charset: "utf-8",
     viewport: "width=device-width, initial-scale=1.0",

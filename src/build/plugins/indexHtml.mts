@@ -9,7 +9,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import util from "node:util";
 import { settings } from "../../settings/index.mts";
-import { htmlTemplate } from "../../utils/index.mts";
+import { templateHtml } from "../../utils/index.mts";
 
 const debug = util.debuglog("debug:esbuild-html-plugin");
 
@@ -23,7 +23,7 @@ function setup (build) {
     const public_html = build.initialOptions.outdir;
 
     const htmlTemplateString = await settings.template("html/index.html");
-    const html = htmlTemplate(String(htmlTemplateString), {
+    const html = templateHtml(String(htmlTemplateString), {
       title: "首页|HOME",
       styles: "/assets/css/styles.css",
       app: "/assets/es/index.mts",

@@ -1,10 +1,11 @@
 /**
  * *****************************************************************************
  *
- * is email value
+ * is big endian
  *
  * *****************************************************************************
  */
 
-const emailRegExp = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-export const isEmail: boolean = v => emailRegExp.test(String(v));
+import { endianness } from "../endianness.mts";
+
+export const isLE: boolean = () => endianness() === "LE";

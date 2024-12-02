@@ -7,14 +7,14 @@
  */
 
 import {
-  graphql,
+  graphql as GraphQL,
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
 } from "graphql";
 // import * as _graphql from '../../apps/graphql/index.mts';
 
-export default function (ctx, next) {
+export function graphql (ctx, next) {
   ctx.body = `<html>
   <h1>GraphQL API</h2>
   <ul>

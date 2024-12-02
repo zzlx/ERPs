@@ -9,7 +9,7 @@
 
 //import * as _graphql from '../../apps/graphql/index.mts';
 
-export default function amap (ctx, next) {
+export function amap (ctx, next) {
   ctx.body = 'amap';
   return next();
 }

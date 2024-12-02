@@ -24,21 +24,12 @@ if (import.meta.filename === process.argv[1]) {
 }
 
 /**
- * running in individual process
+ * running as an individual process
  */
 
 export function main() {
-  debug(`@todos:
-    1. 监控httpd状态,掉线时重启服务
-    2. vim编辑触发pathwatch事件
-  `);
-
-  // backend(...arguments);
-
-  if (process.env.NODE_ENV === "development") {
-    pathWatcher(paths.SRC);
-  }
-
+  // watch path in development environment.
+  if (process.env.NODE_ENV === "development") pathWatcher(paths.SRC);
 }
 
 /**

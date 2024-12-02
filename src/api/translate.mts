@@ -26,6 +26,6 @@ const defaults = {
   sign: null,
 }
 
-export default function translate (ctx, next) {
+export function translate (ctx, next) {
   const api = 'https://fanyi-api.baidu.com/api/trans/vip/translate';
 }

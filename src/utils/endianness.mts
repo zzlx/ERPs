@@ -1,23 +1,31 @@
 /**
  * *****************************************************************************
  *
- * 获取系统字节序列
+ * 字节序,内存超过1个字节类型的数据在内存中存放顺序,
+ * 内存存储字节的两种方式，一个是大端存储，一个是小端存储
+ * 网络字节序使用的是大端方式，大部分计算机使用的是小端模式 
+ * 测试获取大小端序
+ *
+ *
+ * 多字节数据类型（如整数或浮点数）在存储和表示方式上的不同
+
+ * * Big-endian: 将低位字节存放在内存的高位地址,与书写顺序一致，符合人类的阅读习惯
+ * * Little-endian: 将低位放在较小的地址处, 与人类的阅读习惯相反
+ *
+ * > TCP/IP协议规定: 网络数据流采用大端字节序,即低地址高字节
  *
  * *****************************************************************************
  */
 
-const u32 = Uint32Array.of(0x12345678); // 
+const u32 = Uint32Array.of(0x12345678);
 const u8 = new Uint8Array(u32.buffer);
+const newData = (u8[0] << 24) + (u8[1] << 16) + (u8[2] << 8) + u8[3];
 
-export function endianness() {
-  switch ((u8[0] << 24) + (u8[1] << 16) + (u8[2] << 8) + (u8[3])) {
-    case 0x12345678:
-      // BIG_ENDIAN: BE大端序
-      return 'BE';
-    case 0x78563412:
-      // LITTLE_ENDIAN: LE小端序
-      return 'LE';
-    default:
-      throw new Error('Unknown endianness');
-  }
+export const endianness = () => { 
+  if (newData === 0x12345678) return "BE";
+  if (newData === 0x78563412) return "LE";
+  throw new Error('Unknown endianness');
 }
+
+// test
+// console.log(endianness());

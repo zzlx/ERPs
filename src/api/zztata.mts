@@ -16,7 +16,7 @@ const users =  {
   4: "zhao"
 };
 
-export default function (ctx, next) {
+export function zztata (ctx, next) {
   ctx.type = "html";
   ctx.body = "<h1>hello world!</h1>";
   return next();

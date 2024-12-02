@@ -9,8 +9,8 @@
  */
 
 import util from "node:util";
-import { main as build_ui } from "./buildUI.mts";
-import { main as build_css } from "./buildScss.mts";
+import { main as build_ui } from "./esbuild.mts";
+import { main as build_css } from "./scssBuild.mts";
 
 const debug = util.debuglog("debug:build");
 if (import.meta.filename === process.argv[1]) main();

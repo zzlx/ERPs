@@ -22,7 +22,7 @@ import('../server/ACMEClient.mts').then(m => {
 });
 */
 
-export default function acme (ctx, next) {
+export function acme (ctx, next) {
   ctx.type = "text";
   ctx.body = "ACME";
   // 
