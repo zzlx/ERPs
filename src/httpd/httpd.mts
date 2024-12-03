@@ -15,7 +15,7 @@ import util from "node:util";
 
 import { settings } from "../settings/index.mts";
 import { argvParser, flattenArray } from "../utils/index.mts";
-import { spawn } from "../watchd/utils/index.mts";
+import { spawn } from "../backends/utils/index.mts";
 import { app } from "./app.mts";
 
 const debug = util.debuglog("debug:httpd");

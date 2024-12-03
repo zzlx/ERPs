@@ -54,11 +54,11 @@ function handleFileChange (f) {
   debug("file: %s was be modified", f);
 
   if (/\.mjs|\.mts|\.jsx$/.test(f)) {
-    import("../build/buildUI.mts").then(m => m.main())
+    import("../build/esbuild.mts").then(m => m.main())
       .then(() => restartHttpd())
       .then(() => eslint(f));
   } else if (/\.scss$/.test(f)) {
-    import("../build/buidScss.mts").then(m => m.main());
+    import("../build/scssBuild.mts").then(m => m.main());
   } else if (/\.mts$/.test(f)) {
     exec(`tsc --noEmit ${f}`).then(debug).catch(debug);
   } else {

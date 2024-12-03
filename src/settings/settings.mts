@@ -18,7 +18,7 @@ import { packageInfo } from "./packageInfo.mts";
 import * as constants from "./constants.mts";
 import { 
   getchar, exec, exists, 
-} from "../watchd/utils/index.mts";
+} from "../backends/utils/index.mts";
 import { 
   generatePrivateKey, 
   generateCSR,

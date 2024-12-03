@@ -6,7 +6,7 @@
  * *****************************************************************************
  */
 
-import { exec, getchar } from "../../watchd/utils/index.mts";
+import { exec, getchar } from "../../backends/utils/index.mts";
 
 export async function generateCert (keyFile, csrFile, certFile) {
   process.stdout.write("证书文件不存在，是否创建(Y/N):");

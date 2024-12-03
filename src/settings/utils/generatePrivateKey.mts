@@ -6,7 +6,7 @@
  * *****************************************************************************
  */
 
-import { exec, getchar } from "../../watchd/utils/index.mts";
+import { exec, getchar } from "../../backends/utils/index.mts";
 
 export async function generatePrivateKey (keyFile, keyLen = 2048) {
   process.stdout.write(`创建长度为:${keyLen}私钥文件:${keyFile} (Y/N):`);

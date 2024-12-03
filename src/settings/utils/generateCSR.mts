@@ -6,7 +6,7 @@
  * *****************************************************************************
  */
 
-import { exec, getchar } from "../../watchd/utils/index.mts";
+import { exec, getchar } from "../../backends/utils/index.mts";
 
 export async function generateCSR (keyFile, csrFile) {
   process.stdout.write("CSR文件不存在，是否创建(Y/N):");
