@@ -45,6 +45,14 @@ export function ListItem (props: ListItemProps) {
   );
 
   return Array.isArray(data)
-    ? data.map((v, k) => el("li", { key: k , className: cn.className }, v))
+    ? data.map((v, k) => {
+        return typeof v === "object"
+          ? el("li", { key: k , className: cn.className }, el("a", {
+              ...v
+            }))
+          : typeof v === "string"
+            ? el("li", { key: k , className: cn.className }, v)
+            : null;
+      })
     : null; 
 }
