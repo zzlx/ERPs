@@ -25,16 +25,16 @@ import {
 import { Router } from "../koa/Router.mts";
 import { settings, paths } from "../settings/index.mts"; 
 import { templateHtml } from "../utils/index.mts";
-import { readdir } from "../backends/utils/index.mts";
 import * as apiList from "../api/index.mts";
 
-const debug = util.debuglog("debug:routes-api");
 const html = await settings.template("index.html");
 const readme = await fs.readFile(path.join(paths.SRC, "api", "./README.md"));
 
 export const apis = new Router();
 
 const apiData = Object.keys(apiList).map((v, k) => { 
+  apis.get(`/api/${v}`, apiList[v]);
+
   return {
     href: `/api/${v}`,
     children: v,
