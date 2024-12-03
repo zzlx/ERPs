@@ -13,6 +13,21 @@ import { debuglog, classNames, debounce } from "../../utils/index.mts";
 
 const debug = debuglog("debug:InputComponent");
 
+const inputTypes = [
+  "email",
+  "search",
+  "tel",
+  "url",
+  "number",
+  "range",
+  "datetime-local",
+  "month",
+  "time",
+  "week",
+  "date",
+  "color",
+];
+
 interface InputProps  extends ElementProps {
   name: string;
   type: string;
@@ -21,6 +36,10 @@ interface InputProps  extends ElementProps {
   group?: boolean;
   switcher?: any;
   description?: string;
+  multiple?: boolean;
+  min?: string | number;
+  max?: string | number;
+  step?: string | number;
   // [propName: string]: any;
 }
 

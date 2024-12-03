@@ -16,7 +16,7 @@ import { readdir } from "../watchd/utils/index.mts";
 import { apis } from "./apis.mts";
 
 const debug = util.debuglog("debug:routes");
-const template = await settings.template("/html/index.html");
+const template = await settings.template("index.html");
 export const router = new Router({ }); // server router
 debug("@todos: 服务器端路由path配置待解决.");
 
@@ -88,7 +88,6 @@ function apiRouter (root) {
   });
 
   for (const f of rFiles) {
-
     const uri = f.substr(rPath.length);
     let url = uri.substr(0, uri.length - 4);
     if (path.basename(url) === "index") url = path.dirname(url);

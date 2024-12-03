@@ -11,7 +11,7 @@
 import path from "node:path";
 import util from "node:util";
 
-import { htmlTemplate } from "../../utils/index.mts";
+import { templateHtml } from "../../utils/index.mts";
 
 const debug = util.debuglog("debug:middleware-ssr");
 
@@ -54,7 +54,7 @@ export function ssr (options: ssrOptions) {
       <div>`;
     }
 
-    ctx.body = htmlTemplate(String(template), data);
+    ctx.body = templateHtml(String(template), data);
 
     return next();
   };

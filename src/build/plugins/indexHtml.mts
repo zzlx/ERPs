@@ -1,6 +1,7 @@
 /**
  * *****************************************************************************
  *
+ * 打包前端
  *
  * *****************************************************************************
  */
@@ -22,7 +23,7 @@ function setup (build) {
   build.onEnd(async () => {
     const public_html = build.initialOptions.outdir;
 
-    const htmlTemplateString = await settings.template("html/index.html");
+    const htmlTemplateString = await settings.template("index.html");
     const html = templateHtml(String(htmlTemplateString), {
       title: "首页|HOME",
       styles: "/assets/css/styles.css",

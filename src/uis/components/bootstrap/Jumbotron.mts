@@ -13,19 +13,19 @@
  * *****************************************************************************
  */
 
-import React from 'react';
+import React from "react";
 
-const breakpoints = ['sm', 'md', 'lg', 'xl'];
+const breakpoints = ["sm", "md", "lg", "xl"];
 
 export function Jumbotron (props) {
   const { fluid, className, ...rests } = props;
 
   // 根据props属性构造className
   const cn = [
-    'jumbotron',
-    fluid ? 'jumbotron-fluid' : null,
+    "jumbotron",
+    fluid ? "jumbotron-fluid" : null,
     className,
-  ].filter(Boolean).join(' ');
+  ].filter(Boolean).join(" ");
 
-  return React.createElement('div', { className: cn, ...rests });
+  return React.createElement("div", { className: cn, ...rests });
 }

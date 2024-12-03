@@ -1,7 +1,7 @@
 /**
  * *****************************************************************************
  *
- * 下拉选项组件
+ * 下拉控件
  *
  * *****************************************************************************
  */
@@ -12,36 +12,41 @@ import { classNames } from "../../utils/index.mts";
 type SelectProps = {
   name?: string;
   tips?: string;
-  options: [option: string];
+  options: object;
+  multiple?: boolean;
   [propname: string]: any;
 }
 
-export function Select (props: SelectProps) {
+export const Options = props => props.options.map((v, k) => 
+  el("option", { key: k, children: v})
+);
 
+export const Optgroup = props => el("optgroup", { 
+  lable: props.label, 
+  children: el(Options, { options: props.options }),
+});
+
+export const Select = (props: SelectProps) => {
   const { 
-    className, options, children, 
+    className, options, 
     tips,
     size, 
+    children, 
     ...rests 
   } = props;
 
-  const optionArray = [
-    e("option", { selected: true }, tips),
-  ]; 
-
-  Array.isArray(options) && options.map((v, k) => {
-      const isObjectOpt = typeof v === "object";
-      const value = isObjectOpt ? v.value : v;
-      const text = isObjectOpt ? v.text : v;
-      optionArray.push(e("option", { value: value, key: k }, text));
-  });
+  const opts = Array.isArray(options) 
+    ? el(Options, { options })
+    : Object.keys(options).map((v, k) => 
+        el(Optgroup, { key: k, label: v, options: options[v] })
+      );
 
   const cn = classNames(
-      "form-select", 
-      "mb-3", 
-      size ? `form-select-${size}` : false,
-      className,
+    "form-select", 
+    "mb-3", 
+    size ? `form-select-${size}` : false,
+    className,
   ); 
 
-  return e("select", { className: cn, ...rests }, children, optionArray);
+  return e("select", { className: cn.className, ...rests }, opts, children);
 }
