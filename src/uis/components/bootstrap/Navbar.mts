@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { Link } from '../Link.mts';
-import { Dropdown } from '../Dropdown.mts';
+import { Dropdown } from './Dropdown.mts';
 
 export function Navbar (props) {
 

@@ -5,7 +5,7 @@
  * *****************************************************************************
  */
 
-export interface ElementProps {
+export interface _ElementProps {
   children?: any;
   dangerouslySetInnerHTML?: object;
   ref?: any;
@@ -66,4 +66,3 @@ export interface ElementProps {
   tabIndex?: number;
   title?: string;
 }
-

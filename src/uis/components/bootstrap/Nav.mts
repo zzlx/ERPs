@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import { eventHandler } from '../../actions/eventHandler.mts'; 
 
 export function Nav (props) {
   const {

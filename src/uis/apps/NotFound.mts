@@ -9,7 +9,7 @@
  */
 
 import React from "react";
-import { Context } from "../components/Context.mts";
+import { Context } from "../components/index.mts";
 import { debuglog } from "../../utils/index.mts";
 
 const debug = debuglog("debug:PageNotFound");

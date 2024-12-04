@@ -7,7 +7,7 @@
  */
 
 import { createElement as e } from "react";
-import { classNames } from "../utils/index.mts";
+import { classNames } from "../../utils/index.mts";
 
 type BadgeProps = {
   theme?: string;

@@ -147,15 +147,23 @@ set modeline
 set tags=tags,tagsx,..\tags
 set autochdir  " 自动进入文件所在目录
 
+" 文件类型与语法配置
+filetype on               " 文件类型检测
+filetype plugin on        " 根据不同类型的文件加载插件
+filetype indent on
+filetype plugin indent on
+syntax on
+syntax enable
+
 " 默认缩进设置
 set cindent 
+set expandtab " tab 展开为空格
+set tabstop=2 " tab 宽度
 set shiftwidth=2 
-set tabstop=2
 set shiftround
 set softtabstop=2
 set noautoindent
 "set autoindent    " 自动缩进 set noautoindent 取消自动缩进
-set expandtab " expand tab 
 set smarttab
 set smartindent   " 智能缩进
 
@@ -166,15 +174,6 @@ set hlsearch
 set incsearch    " 实时搜索功能
 set ignorecase   " 搜索时大小写不敏感
 
-" ------------------------------------------------------------------------------
-" 文件类型与语法配置
-" ------------------------------------------------------------------------------
-filetype on               " 文件类型检测
-"filetype plugin on        " 根据不同类型的文件加载插件
-"filetype indent on
-"filetype plugin indent on
-"syntax on
-syntax enable
 
 " ------------------------------------------------------------------------------
 let Tlist_Auto_Open=1 
@@ -198,7 +197,7 @@ let g:netrw_autoupdate = 1
 " let g:loaded_netrwPlugin = 1
 " let g:netrw_winsize = 25 " 设置窗口宽度为25%
 let g:netrw_usetab = 1
-let g:netrw_banner = 1
+let g:netrw_banner = 0
 let g:netrw_liststyle = 0
 let g:netrw_browse_split = 4 " 0 当前窗口 1 水平 2 垂直 3 新标签页 4 前一个窗口
 let g:netrw_altv = 1  " 水平分割时显示在左

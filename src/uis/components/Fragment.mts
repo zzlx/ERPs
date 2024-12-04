@@ -1,10 +1,11 @@
 /**
  * *****************************************************************************
- * 
+ *
+ * fragment component
  *
  * *****************************************************************************
  */
 
-export interface InputProps {
+import React from "react";
 
-}
+export const Fragment = props => React.createElement(React.Fragment, { ...props });

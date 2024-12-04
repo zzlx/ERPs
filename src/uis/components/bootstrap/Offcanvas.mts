@@ -9,7 +9,6 @@
  */
 
 import React from 'react';
-import { eventHandler } from '../actions/eventHandler.mts'; 
 
 export function Offcanvas (props) {
   const { title, placement, className, children, ...rest } = props;
@@ -42,3 +41,24 @@ export function Offcanvas (props) {
     ...rest
   }, header, body);
 }
+
+function eventHandler (e) {
+  if (e.target.dataset) {
+    if (e.target.dataset.bsDismiss === 'offcanvas') return dismissOffcanvas(e);
+    if (e.target.dataset.bsToggle === 'offcanvas') return toggleOffcanvas(e);
+  }
+}
+
+
+export function dismissOffcanvas (e) {
+  const offcanvas = e.target.parentNode.parentNode;
+  offcanvas.classList.remove('show');
+}
+
+export function toggleOffcanvas (e) {
+  const target = e.target.dataset.bsTarget;
+  const offcanvas =  document.getElementById(target);
+  offcanvas.classList.toggle('show');
+}
+
+

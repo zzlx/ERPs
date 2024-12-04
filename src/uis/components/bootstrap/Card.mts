@@ -25,6 +25,18 @@ export function Card (props) {
   });
 }
 
+// Card group
+export function CardGroup (props) {
+  const {group, deck, columns, className, ...rests} = props;
+  const cn = [];
+  if (group || (!columns && !deck)) cn.push('card-group');
+  if (columns) cn.push('card-columns');
+  if (deck) cn.push('card-deck');
+  return React.createElement('div', { ...rests, className: cn.join(' ')});
+} 
+
+Card.Group = CardGroup;
+
 /*
 
   // @todo: 此阶段不应当再变更样式,不利于服务端渲染效果
@@ -81,3 +93,5 @@ export function Card (props) {
   }
 }
 */
+
+

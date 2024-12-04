@@ -3,14 +3,12 @@
  *
  * 待办事项列表
  *
- *
  * *****************************************************************************
  */
 
 import React from 'react';
-import { Context } from './Context.mts';
-import { Button } from './Button.mts';
-import { Alert as Message } from './Alert.mts';
+import { Context } from './functions/Context.mts';
+import { Alert as Message, Button } from './bootstrap/index.mts';
 
 export class TodoList extends React.Component {
   constructor(props) {

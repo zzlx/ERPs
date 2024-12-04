@@ -22,7 +22,8 @@ interface LinkProps {
 
 export function Link (props: LinkProps) {
   const { 
-    onClick, className, 
+    onClick, 
+    className, 
     text,
     width, height,
     src, alt,
@@ -61,4 +62,37 @@ export function Link (props: LinkProps) {
     },
     ...rests
   }, img, textWrapper);
+}
+
+/**
+ *
+ *
+ */
+
+function clickHandler (e) {
+  e.stopPropagation();
+  e.preventDefault();
+
+  // event: click nav link
+  if (e.target.classList.contains('nav-link')) {
+    //e.target.classList.toggle('active');
+    const nav = e.target.parentNode.parentNode;
+    const links = nav.querySelectorAll('a.nav-link');
+
+    // 遍历links,取消active状态
+    for (const link of links) {
+      if (link === event.target) link.classList.add('active');
+      else link.classList.remove('active');
+    }
+
+    const selectors = e.target.hash;
+    if (null == selectors || '' === selectors) return;
+    const target = document.querySelector(selectors);
+    if (null == target) return; // not found
+    const tabContent = target.parentNode;
+    for (const item of tabContent.children) { item.classList.remove('active'); }
+    target.classList.add('active');
+
+    return;
+  }
 }

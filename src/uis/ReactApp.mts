@@ -1,25 +1,18 @@
 /**
  * *****************************************************************************
- *
- * UI Operation System.
- *
- *
+ * React application.
  * *****************************************************************************
  */
 
 import React from "react";
-import { Provider } from "./components/Provider.mts";
-import { Switcher } from "./components/Switcher.mts";
-import { Route } from "./components/Route.mts";
+
+import {
+  Provider,
+  Switcher,
+  Route,
+} from "./components/index.mts";
 import { createStore } from "./store/createStore.mts"; 
 import { routes as routesMap } from "./routes.mts";
-
-// import { default as lodash }from "lodash";
-// console.log(lodash);
-
-/**
- * UI Application.
- */
 
 export function ReactApp (props = {}) {
   const store = createStore(props);

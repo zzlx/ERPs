@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "development") {
   }));
 }
 
-router.use([ "/api", "/apis" ], cors(), apis.routes()); // API跨域访问
+router.use([ "/api", "/api/*" ], cors(), apis.routes()); // API跨域访问
 
 // Doc router
 const docsRouter = new Router({ });

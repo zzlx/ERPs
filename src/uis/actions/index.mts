@@ -1,14 +1,7 @@
 /**
  * *****************************************************************************
  *
- * function action handler
- *
- * 用于与服务器通讯等目录
- * 
  * *****************************************************************************
  */
 
-export { eventHandler } from "./eventHandler.mts";
-export { listEventHandler } from "./listEventHandler.mts";
-export { onChangeHandler } from "./onChangeHandler.mts";
-export { onKeyDownHandler } from "./onKeyDownHandler.mts";
+export { actionTypes } from "./actionTypes.mts";

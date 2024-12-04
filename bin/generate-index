@@ -32,9 +32,11 @@ fs.promises.readdir(dir, { encoding: "utf8", withFileTypes: true }).then(files =
       retval += `export * from "./${file.name}/index.mts";\n`;
       count++;
     } else if (file.isFile()) { 
+
       if (file.name === "index.mts") return;
       if (/^\./.test(file.name)) return;
-      if (!/.mts$/.test(file.name)) return;
+      if (/\.d\.mts$/.test(file.name)) return;
+      if (!/\.mts$/.test(file.name)) return;
 
       const fileContent = fs.readFileSync
 

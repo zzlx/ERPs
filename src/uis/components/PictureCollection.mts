@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import { Button } from './Button.mts';
+import { Button } from './bootstrap/Button.mts';
 
 export class PictureCollection extends React.PureComponent {
   constructor (props) {

@@ -9,7 +9,7 @@
 
 import React from 'react';
 
-export class ProgressBar extends React.PureComponent {
+export class Progress extends React.PureComponent {
   render() {
     const { 
       min, now, max, label,striped, animated

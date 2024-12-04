@@ -10,7 +10,7 @@
 
 import React from 'react';
 import { Context } from "./Context.mts";
-import { Countdown } from './Countdown.mts';
+import { Countdown } from '../Countdown.mts';
 import { generatePath, createLocation } from "../../utils/index.mts";
 
 export class Redirect extends React.PureComponent {

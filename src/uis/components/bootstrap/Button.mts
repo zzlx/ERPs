@@ -7,10 +7,10 @@
  */
 
 import { createElement as e } from "react";
-import { type ElementProps } from "../declarations/ElementProps.d.mts";
-import { classNames } from "../utils/index.mts";
+import { type _ElementProps } from "../_ElementProps.d.mts";
+import { classNames } from "../../utils/index.mts";
 
-interface ButtonProps extends ElementProps {
+interface ButtonProps extends _ElementProps {
    link: string;
    theme: string;
    outline: boolean;
@@ -114,36 +114,6 @@ function dropdown(e) {
     }
     //menu.classList.add("collapsing");
     menu.classList.toggle("show");
-  }
-}
-
-/**
- * collapse
- */
-
-function collapse(e) {
-  e.preventDefault();
-  const target = e.currentTarget.dataset["target"];
-  const collapse = document.querySelectorAll(target);
-
-  for (let item of collapse) {
-    if (e.key === "Escape") { item.classList.remove("show"); continue; }
-    if (e.type === "keydown" && e.key === "Enter" || e.type === "click") {
-      item.classList.toggle("show");
-      e.currentTarget.focus();
-      const toggle = e.currentTarget;
-      const rm = () => item.classList.remove("show");
-      
-      // 鼠标进入时注销blur事件
-      e.currentTarget.parentNode.addEventListener("mouseenter", () => {
-        toggle.removeEventListener("blur", rm, {once: true});
-      });
-
-      // 鼠标移出时绑定blur事件
-      e.currentTarget.parentNode.addEventListener("mouseleave", () => {
-        toggle.addEventListener("blur", rm, {once: true});
-      });
-    }
   }
 }
 

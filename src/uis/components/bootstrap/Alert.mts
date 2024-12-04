@@ -20,7 +20,7 @@
  */
 
 import React from "react";
-import { classNames } from "../utils/index.mts";
+import { classNames } from "../../utils/index.mts";
 
 export class Alert extends React.PureComponent {
   constructor (props) {

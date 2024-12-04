@@ -3,6 +3,8 @@
  *
  * Accordion Component
  *
+ * 手风琴效果组件
+ *
  * data：[ 
  *   { header: 'header1', body: 'strings', show: true },
  *   ...
@@ -12,8 +14,7 @@
  */
 
 import { createElement as e } from 'react';
-import { RawHtml } from './RawHtml.mts';
-import { eventHandler } from '../actions/eventHandler.mts';
+import { RawHtml } from '../RawHtml.mts';
 
 export function Accordion (props) {
   const { 
@@ -79,3 +80,31 @@ const Item = props => e("div", {
     }),
   ],
 });
+
+export function eventHandler (e) {
+
+  if (e.type === 'click' && e.target.classList.contains("accordion-button")) {
+    // record collapsed status
+    const isCollapsed = e.target.classList.contains('collapsed'); 
+    // location accordion
+    const a = e.target.parentNode.parentNode.parentNode; 
+    
+    if (a.dataset.always === 'false') {
+      a.childNodes.forEach(item => {
+        item.firstChild.firstChild.classList.add('collapsed');
+        item.lastChild.classList.remove('show');
+      });
+    }
+
+    // 根据情况切换显示状态
+    if (isCollapsed) {
+      e.target.classList.remove('collapsed');
+      e.target.parentNode.nextSibling.classList.add("show");
+    } else {
+      e.target.classList.add('collapsed');
+      e.target.parentNode.nextSibling.classList.remove("show");
+    }
+
+    return; // finish event handler
+  } // End of accordion click event
+}

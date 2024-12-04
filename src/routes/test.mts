@@ -31,36 +31,7 @@ const readme = await fs.readFile(path.join(paths.SRC, "api", "./README.md"));
 
 export const apis = new Router();
 
-const apiData = Object.keys(apiList).map(v => { 
-  apis.get(v, `/api/${v}`, apiList[v]);
-  
-
-  return {
-    href: `/api/${v}`,
-    children: v,
-  };
-});
-
-console.log(apis);
-
-const sitemap = [];
-const markup = React.createElement(MarkdownPreview, { markdown: String(readme) });
-const list =  React.createElement(List, { 
-  // flush: true, 
-  numbered: true,
-  data: apiData,
-}); 
-const app = React.createElement(React.Fragment, null, markup, list);
-
 apis.get("/", (ctx, next) => {
-  ctx.body = templateHtml(String(html), { 
-    title: "接口列表|API Lists",
-    description: "API接口",
-    styles: "/assets/css/styles.css",
-    app: "",
-    root: ReactDOMServer.renderToString(app),
-  });
-
+  ctx.body = "test";
   return next();
-
 });
