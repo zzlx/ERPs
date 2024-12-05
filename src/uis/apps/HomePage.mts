@@ -33,6 +33,7 @@ export function HomePage () {
     onClick: C.Collapse.eventHandler,
     "data-target": collapseID,
   }, "collapse");
+
   const collapse = el(C.Collapse, {
     id: collapseID,
   }, h1, nav, img, list);

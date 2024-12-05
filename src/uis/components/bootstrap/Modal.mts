@@ -58,3 +58,44 @@ export function Modal(props) {
     role: "dialog" 
   }, dialog);
 }
+
+
+/**
+ *
+ *
+ */
+
+function modalEventHandler(e) {
+  const b = e.currentTarget;
+
+  if (b.dataset["dismiss"] && b.dataset["dismiss"] === "modal") {
+    const modal = b.parentNode.parentNode.parentNode.parentNode; 
+    modal.classList.remove("show", "d-block");
+    const backdrop = document.querySelector(".modal-backdrop");
+    if (backdrop) document.body.removeChild(backdrop);
+    document.body.classList.remove("modal-open");
+  }
+
+  if (b.dataset["toggle"] && b.dataset["toggle"] === "modal") {
+    const target = b.dataset["target"];
+    if (target == null) return;
+    const modal = document.querySelector(target);
+    if (modal.classList.contains("show")) {
+      document.body.classList.remove("modal-open");
+
+      const backdrop = document.querySelector(".modal-backdrop");
+      if (backdrop) document.body.removeChild(backdrop);
+      document.body.classList.remove("modal-open");
+    } else {
+      const backdrop = document.createElement("div");
+      backdrop.classList.add("modal-backdrop", "show");
+      document.body.appendChild(backdrop);
+      document.body.classList.add("modal-open");
+    }
+
+    modal.classList.toggle("show");
+    modal.classList.toggle("d-block");
+  }
+}
+
+Modal.eventHandler = modalEventHandler;

@@ -17,9 +17,11 @@ import { routes as routesMap } from "./routes.mts";
 export function ReactApp (props = {}) {
   const store = createStore(props);
 
-  const routes = routesMap.map(
-    (route, i) => React.createElement(Route, { key: i, ...route })
-  );
+  const routes = routesMap.map((route, i) => React.createElement(Route, { 
+    key: i, 
+    ...route 
+  }));
+
   const switcher = React.createElement(Switcher, {}, routes); 
 
   return React.createElement(Provider, {
