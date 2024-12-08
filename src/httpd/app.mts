@@ -52,8 +52,9 @@ app.use(cors());
 app.use(cookies());
 
 // 载入服务端路由配置
-const router = await import("../routes/index.mts").then(m => m.router);
-app.use(router.routes()); 
+const router = await import("../routes/index.mts").then(routes => {
+  // app.use("", router.routes()); 
+});
 
 // 开发模式下启用的功能特性
 // The last one of the middleware stack

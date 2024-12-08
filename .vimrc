@@ -278,10 +278,10 @@ func SetComment()
 function! EnterVim ()
   if argc() == 0 || isdirectory(argv(0))
     " :Vexplore
-    :edit README.md
-    :vsp
+    " :edit README.md
     :E
-    :wincmd w
+    :vsp
+    ":wincmd w
   endif
 endfunction
 
