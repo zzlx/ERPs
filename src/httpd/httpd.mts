@@ -16,7 +16,7 @@ import util from "node:util";
 import { settings } from "../settings/index.mts";
 import { argvParser, flattenArray } from "../utils/index.mts";
 import { spawn } from "../backends/utils/index.mts";
-import { app } from "./app.mts";
+import { app } from "../app.mts";
 
 const debug = util.debuglog("debug:httpd");
 const is_main_process =  import.meta.filename === process.argv[1];

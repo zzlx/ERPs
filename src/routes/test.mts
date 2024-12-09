@@ -29,9 +29,23 @@ import * as apiList from "../api/index.mts";
 const html = await settings.template("index.html");
 const readme = await fs.readFile(path.join(paths.SRC, "api", "./README.md"));
 
+export const test = () => {};
+
 export const apis = new Router();
 
 apis.get("/", (ctx, next) => {
   ctx.body = "test";
   return next();
 });
+
+// Test Route
+const testRouter = new Router();
+
+testRouter.get("user", "/users/:uid", (ctx, next) => {
+  debug("params", ctx.params);
+  debug("captures", ctx.captures);
+  ctx.body = ctx.router.url("user", { id: 180 }, { query: "test=abc"});
+  return next();
+});
+
+apis.use(testRouter.routes());

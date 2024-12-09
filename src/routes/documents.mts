@@ -13,7 +13,8 @@ import { Router } from "../koa/Router.mts";
 import { cors, ssr, srs } from "../koa/middlewares/index.mts";
 import { settings, paths } from "../settings/index.mts"; 
 import { readdir } from "../backends/utils/index.mts";
-import { apis } from "./apis.mts";
+
+export const documents = () => {};
 
 const debug = util.debuglog("debug:routes");
 const template = await settings.template("index.html");
@@ -29,8 +30,6 @@ if (process.env.NODE_ENV === "development") {
     prefix: "/coding",
   }));
 }
-
-router.use([ "/api", "/api/*" ], cors(), apis.routes()); // API跨域访问
 
 // Doc router
 const docsRouter = new Router({ });

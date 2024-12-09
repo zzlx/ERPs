@@ -29,10 +29,10 @@ import * as apiList from "../api/index.mts";
 const html = await settings.template("index.html");
 const readme = await fs.readFile(path.join(paths.SRC, "api", "./README.md"));
 
-export const api = new Router();
+export const router = new Router();
 
 const apiData = Object.keys(apiList).map(v => { 
-  api.get(v, `/api/${v}`, apiList[v]);
+  router.get(v, `/api/${v}`, apiList[v]);
   
 
   return {
@@ -50,7 +50,7 @@ const list =  React.createElement(List, {
 }); 
 const app = React.createElement(React.Fragment, null, markup, list);
 
-api.get("/", (ctx, next) => {
+router.get("/api/", (ctx, next) => {
   ctx.body = templateHtml(String(html), { 
     title: "接口列表|API Lists",
     description: "API接口",
@@ -60,5 +60,6 @@ api.get("/", (ctx, next) => {
   });
 
   return next();
-
 });
+
+export const api = router;

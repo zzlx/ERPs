@@ -10,5 +10,5 @@
  */
 
 export { api } from "./api.mts";
-export { documents } from "./documents.mts";
-export { test } from "./test.mts";
+export { docs } from "./docs.mts";
+export { homepage } from "./homepage.mts";
