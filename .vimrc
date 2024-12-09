@@ -254,35 +254,24 @@ func! SetHeader()
         call setline(5,"#FileName：      ".expand("%"))
         call setline(6,"#********************************************************************")
         call setline(7,"")
-      endif
+  endif
 endfunc
-
-" ------------------------------------------------------------------------------
-"
-" ------------------------------------------------------------------------------
-func SetComment()
-     call setline(1,"/*==================================")
-     call append(line("."),   "*   Copyright (C) ".strftime("%Y")." All rights reserved.")
-     call append(line(".")+1, "*   ")
-     call append(line(".")+2, "*   文件名称：".expand("%:t"))
-     call append(line(".")+3, "*   创 建 者：herb")
-     call append(line(".")+4, "*   创建日期：".strftime("%Y年%m月%d日"))
-     call append(line(".")+5, "*   描    述：")
-     call append(line(".")+6, "*")
-     call append(line(".")+7, "================================================================*/")
- endfunc
 
 " ------------------------------------------------------------------------------
 "  进入vim时执行的任务
 " ------------------------------------------------------------------------------
 function! EnterVim ()
+
   if argc() == 0 || isdirectory(argv(0))
     " :Vexplore
-    " :edit README.md
     :E
     :vsp
+    if filereadable('README.md')
+      silent edit README.md
+    endif
     ":wincmd w
   endif
+
 endfunction
 
 " ------------------------------------------------------------------------------
