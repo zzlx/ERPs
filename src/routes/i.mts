@@ -1,12 +1,8 @@
 /**
  * *****************************************************************************
  * 
- * 服务端路由配置
- *
- * @TODOS:
- *
- * * 解决子路由path问题
- * * ...
+ * 通过短地址访问系统所有节点
+ * /i/8abc3d
  *
  * *****************************************************************************
  */
@@ -29,23 +25,12 @@ import * as apiList from "../api/index.mts";
 const html = await settings.template("index.html");
 const readme = await fs.readFile(path.join(paths.SRC, "api", "./README.md"));
 
-export const test = () => {};
-
-export const apis = new Router();
-
-apis.get("/", (ctx, next) => {
-  ctx.body = "test";
-  return next();
-});
-
 // Test Route
-const testRouter = new Router();
+export const a = new Router();
 
-testRouter.get("user", "/users/:uid", (ctx, next) => {
+a.get("user", "/users/:uid", (ctx, next) => {
   debug("params", ctx.params);
   debug("captures", ctx.captures);
   ctx.body = ctx.router.url("user", { id: 180 }, { query: "test=abc"});
   return next();
 });
-
-apis.use(testRouter.routes());
