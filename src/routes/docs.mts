@@ -18,7 +18,7 @@ const debug = util.debuglog("debug:routes/docs");
 export const router = new Router({ }); // Doc router
 export const docs = router;
 
-router.get("Docs", "*", srs(paths.DOC, { 
+router.get("Docs", "/docs/*", srs(paths.DOC, { 
   index: "README.md",
-  prefix: "/docs(/*.*)", // 设置prefix后生效
+  prefix: "/doc(/*.*)", // 设置prefix后生效
 })); 

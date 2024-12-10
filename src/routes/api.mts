@@ -33,7 +33,6 @@ export const router = new Router();
 
 const apiData = Object.keys(apiList).map(v => { 
   router.get(v, `/api/${v}`, apiList[v]);
-  
 
   return {
     href: `/api/${v}`,
