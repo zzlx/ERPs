@@ -14,11 +14,11 @@ import { xResponse } from "./koa/middlewares/xResponse.mts";
 import { logger } from "./koa/middlewares/logger.mts";
 import { cors } from "./koa/middlewares/cors.mts";
 // import { objectID } from "./utils/objectID.mts";
-import { Postgresql } from "./database/Postgresql.mts";
+// import { Postgresql } from "./database/Postgresql.mts";
 import * as routes from "./routes/index.mts";
 
 const debug = util.debuglog("debug:koa-app");
-const pg = new Postgresql();
+// const pg = new Postgresql();
 
 export const app = new Koa2({
   env: process.env.NODE_ENV || "production", // default value is production
@@ -36,18 +36,19 @@ app.on("error", (err, ctx) => {
 
 // 
 false && app.use(async (ctx, next) => {
-  ctx.db = await pg.getClient();
+  // ctx.db = await pg.getClient();
   await next();
-  ctx.db.release();
+  // ctx.db.release();
   // debug(pg.pool);
 });
+
 app.use(error());
 app.use(xResponse());
 app.use(logger());
 app.use(cors());
 app.use(cookies());
 
-// 载入服务端路由配置
+// 配置服务端路由
 Object.keys(routes).map(k => { 
   const route = routes[k].routes();
   app.use(route); // add routes
@@ -56,7 +57,6 @@ Object.keys(routes).map(k => {
 // 开发模式下启用的功能特性
 // The last one of the middleware stack
 app.env === "development" && app.use(async function (ctx) { 
-
   // const now = await ctx.db.query('SELECT NOW()')
   // ctx.body = now;
 
