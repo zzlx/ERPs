@@ -1,7 +1,7 @@
-Database Interface
-==================
+Database Administrator
+======================
 
-### supported databases:
+### supported databases
 
 * postgresql
 * sqlite

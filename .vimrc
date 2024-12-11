@@ -227,15 +227,14 @@ endfunc
 "  进入vim时执行的任务
 " ------------------------------------------------------------------------------
 function! EnterVim ()
+  let readme_file = expand('%:p:h') . '/README.md'
 
   if argc() == 0 || isdirectory(argv(0))
     " :Vexplore
-    :E
+    :e README.md
     :vsp
-    if filereadable('README.md')
-      silent edit README.md
-    endif
-    ":wincmd w
+    :E
+    :wincmd w
   endif
 
 endfunction
@@ -341,7 +340,7 @@ autocmd BufRead *.html,<&faf;HTML>  runtime! syntax/html.vim
 " 进入Vim时执行的任务
 autocmd VimEnter * silent! :call EnterVim()
 
-"
+" 写入文件后执行的任务
 autocmd BufWritePost $MYVIMRC source $MYVIMRC " 自动生效配置文件
 autocmd BufWritePost * :call WritePostActions()
 

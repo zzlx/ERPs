@@ -1,4 +1,6 @@
 /**
+ * *****************************************************************************
+ *
  * Creates a keyed JS object from an array, given a function to produce the keys
  * and a function to produce the values from each item in the array.
  *
@@ -14,6 +16,7 @@
  *       entry => entry.num
  *     )
  *
+ * *****************************************************************************
  */
 
 export function keyValMap(list, keyFn, valFn) {
