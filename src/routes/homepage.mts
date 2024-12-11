@@ -25,7 +25,7 @@ homepage.redirect("/home", "/"); // Redirect /test to /
 
 homepage.get("public_html", "/*", srs("public_html"));
 homepage.get(
-  "UIAPP", 
+  "UIS", 
   [ "/", "/home", "/home/*", "/test", "/test/*", ], 
   ssr({
     app: path.join(paths.SRC, "uis", "serverSideRender.mts"),

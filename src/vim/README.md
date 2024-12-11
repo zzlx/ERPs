@@ -1,8 +1,38 @@
-VIM资源
-=======
+VIM
+===
+
+从:help tutor 开始
+
+> 坚持每天一个小进步
+> 访问vim官方网站[https://www.vim.org](https://www.vim.org)学习更多使用技巧.
+> ——学而不思则怠 死而不学则罔,如果哪天觉得VIM影响使用了,就到了该进一步学习时候了
+使用方法: vim -u vimrc
+# 常用快捷操作：
+## 光标定位
+* gd 跳至变量声明处
+* $跳至行尾
+* ^跳至行首
+* 0跳至第一个字符
+## 编辑操作
+* d/D 删除至行末
+* U:撤销
+* xp:交换当前字符与下一个字符
+* ctrl + r 重做
+* ==:自动缩紧当前行
+## 页面导航
+* 0gt打开第一个标签
+## 其他
+gg=G 全文排版
+:copen 编译程序
+:tabnew  open tabpage after the current one
+:+tabnew open tabpage after the next
+:-tabnew open tabpage before current
+:0tabnew open tabpage before first
+:$tabnew open tabpage after last one
 
 ## 参考
 
+* [vim官方文档](https://www.vim.org/docs.php)
 * [vim中文社区](https://www.osvim.com)
 * [MacVim最新版](https://github.com/macvim-dev/macvim/releases)
 

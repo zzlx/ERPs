@@ -38,7 +38,7 @@ export function srs (dir = "public_html", options = {}) {
     }
     
     if (ctx.body != null || (ctx.status && ctx.status != 404)) {
-      debug("旁路规则2: body被设置后优先于静态资源,因此body非空时进行旁路");
+      debug("旁路规则2: body非空时进行旁路");
       return next();
     }
 

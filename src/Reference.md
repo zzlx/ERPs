@@ -86,7 +86,7 @@
 
 # 开发平台文档 
 
-* [高的开放平台](https://lbs.amap.com)
+* [高德开放平台](https://lbs.amap.com)
 * [华为开发者中心](https://developer.huawei.com)
 * [微信开放社区](https://developers.weixin.qq.com)
 * [钉钉后台](https://login.dingtalk.com/oauth2/challenge.htm?redirect_uri=https%3A%2F%2Foa.dingtalk.com%2Fomp%2Flogin%2Fdingtalk_sso_call_back%3Fcontinue%3Dhttps%253A%252F%252Foa.dingtalk.com%252F%253Fspm%253Da3140.7858860.2231602.7.0TNYFY&response_type=code&client_id=dingoaltcsv4vlgoefhpec&scope=openid+corpid&org_type=management#/login)

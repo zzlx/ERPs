@@ -1,7 +1,6 @@
 Mac OSX
 ==========
 
-
 # Q&A  
 
 ## iphone通过USB连接Mac后频繁掉线

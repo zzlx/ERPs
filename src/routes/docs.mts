@@ -15,10 +15,9 @@ import { paths } from "../settings/index.mts";
 
 const debug = util.debuglog("debug:routes/docs");
 
-export const router = new Router({ }); // Doc router
-export const docs = router;
+export const docs = new Router({ }); // Doc router
 
-router.get("Docs", "/docs/*", srs(paths.DOC, { 
+docs.get("docs", "/docs/*", srs(paths.DOC, { 
   index: "README.md",
-  prefix: "/doc(/*.*)", // 设置prefix后生效
+  prefix: "/docs(/*.*)", // 设置prefix后生效
 })); 
